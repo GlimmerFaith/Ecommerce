@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.idea.mapper.AdminMapper">
+    <resultMap id="AdminMap" type="com.idea.entity.AdminParam">
+        <id column="id" property="id"></id>
+        <result column="nick_name" property="nickName"></result>
+        <result column="create_time" property="createTime"></result>
+        <result column="login_time" property="loginTime"></result>
+    </resultMap>
+
+    <!--插入一个用户-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO ums_admin
+            (username,password,icon,email,nick_name,note,create_time,login_time,status)
+        VALUES
+            (#{username},#{password},#{icon},#{email},#{nickName},#{note},#{createTime},#{loginTime},#{status})
+    </insert>
+
+    <!--查询所有用户-->
+    <select id="findByUsername" resultMap="AdminMap">
+        SELECT * FROM ums_admin WHERE username = #{username};
+    </select>
+
+    <!--删除一个用户-->
+    <delete id="deleteByUsername" parameterMap="AdminMap">
+        DELETE *FROM ums_admin WHERE username = #{username};
+    </delete>
+
+
+    <update id="updateByUsername" >
+        UPDATE  ums_admin
+            (username,password,icon,email,nick_name,note,create_time,login_time,status)
+        VALUES
+            (#{username},#{password},#{icon},#{email},#{nickName},#{note},#{createTime},#{loginTime},#{status})
+    </update>
+
+</mapper>
