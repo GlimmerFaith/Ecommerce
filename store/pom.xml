@@ -8,8 +8,8 @@
         <version>3.1.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.idea</groupId>
-    <artifactId>ServerSystem</artifactId>
+    <groupId>com.xy</groupId>
+    <artifactId>store</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
